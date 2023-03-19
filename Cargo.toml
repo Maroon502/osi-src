@@ -1,0 +1,41 @@
+[package]
+name = "osi-src"
+version = "0.1.0+0.108.7"
+edition = "2021"
+build = "build.rs"
+links = "Osi"
+license-file = "../LICENSE.md"
+description = "Build Osi as a crate."
+repository = "https://github.com/Maroon502/osi-src"
+keywords = ["coin-or", "Osi", "Osi-src"]
+readme = "README.md"
+authors = [
+    "Maroon"
+]
+exclude = [
+    "Osi/**/*",
+    "!Osi/Osi/src/**/*",
+    "!**/LICENSE",
+    "!**/AUTHORS",
+]
+
+[features]
+default = ["coinutils-src/default"]
+system = ["coinutils-src/system"]
+static = ["coinutils-src/static"]
+
+cplex = []
+glpk = []
+gurobi = []
+mosek = []
+soplex = []
+xpress = []
+
+
+[dependencies]
+coinutils-src = {git = "https://github.com/Maroon502/coinutils-src.git", optional = true}
+
+[build-dependencies]
+cc = "1.0"
+vcpkg = "0.2"
+pkg-config = "0.3"

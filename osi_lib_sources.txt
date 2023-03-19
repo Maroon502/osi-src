@@ -1,0 +1,12 @@
+OsiAuxInfo.cpp
+OsiBranchingObject.cpp
+OsiChooseVariable.cpp
+OsiColCut.cpp
+OsiCut.cpp
+OsiCuts.cpp
+OsiNames.cpp
+OsiPresolve.cpp
+OsiRowCut.cpp
+OsiRowCutDebugger.cpp
+OsiSolverBranch.cpp
+OsiSolverInterface.cpp
