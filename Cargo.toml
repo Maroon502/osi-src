@@ -5,13 +5,12 @@ edition = "2021"
 build = "build.rs"
 links = "Osi"
 license = "Apache-2.0"
-license-file = "LICENSE.md"
-description = "Build Osi as a crate."
-repository = "https://github.com/Maroon502/osi-src"
+description = "The low-level bindings to the COIN-OR Osi library."
+repository = "https://github.com/Maroon502/osi-src.git"
 keywords = ["coin-or", "Osi", "Osi-src"]
 readme = "README.md"
 authors = [
-    "Maroon"
+    "Maroon502<maroon502@outlook.com>"
 ]
 exclude = [
     "Osi/**/*",
@@ -21,9 +20,7 @@ exclude = [
 ]
 
 [features]
-default = ["coinutils-src/default"]
-system = ["coinutils-src/system"]
-static = ["coinutils-src/static"]
+default = []
 
 cplex = []
 glpk = []
@@ -34,9 +31,8 @@ xpress = []
 
 
 [dependencies]
-coinutils-src = {git = "https://github.com/Maroon502/coinutils-src.git", optional = true}
+coinutils-src = {git = "https://github.com/Maroon502/coinutils-src.git"}
 
 [build-dependencies]
 cc = "1.0"
-vcpkg = "0.2"
-pkg-config = "0.3"
+coin-build-tools = { git = "https://github.com/Maroon502/coin-build-tools.git" }
