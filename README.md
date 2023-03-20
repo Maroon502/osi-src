@@ -2,7 +2,9 @@
 
 [![Package][package-img]][package-url] [![Documentation][documentation-img]][documentation-url] [![License][license-img]][license-url]
 
-The package provides a source of [Osi].
+The package provides Low-level bindings to the [Osi] library. [Osi] build with [CoinUtils] ([CoinUtils-src]) support.
+
+Osi (Open Solver Interface) provides an abstract base class to a generic linear programming (LP) solver, along with derived classes for specific solvers. Many applications may be able to use the Osi to insulate themselves from a specific LP solver. That is, programs written to the OSI standard may be linked to any solver with an OSI interface and should produce correct results. The OSI has been significantly extended compared to its first incarnation. Currently, the OSI supports linear programming solvers and has rudimentary support for integer programming.
 
 ## Usage
 Just add the following to your `Cargo.toml`:
@@ -14,17 +16,22 @@ osi-src = "0.1"
 
 ## Configuration
 
-The following Cargo features are supported:
+The package build from the source and link statically by default. It also provide the following environment variables to allow users to link to system library customly:
 
-* `static` to link to Osi statically, and
-* `system` to skip building the bundled Osi.
+* `CARGO_COINUTILS_STATIC` to link to CoinUtils statically;
+* `CARGO_COINUTILS_SYSTEM` to link to CoinUtils system library;
+* `CARGO_OSI_STATIC` to link to Osi statically;
+* `CARGO_OSI_SYSTEM` to link to Osi system library;
+
+Set the environment variable to `1` to enable the feature. For example, to link to system library dynamically, set `CARGO_${LIB_NAME}_SYSTEM` to `1`; to link to system library statically, set both `CARGO_${LIB_NAME}_SYSTEM` and `CARGO_${LIB_NAME}_STATIC` to `1`.
 
 ## Windows and vcpkg
 
-On Windows, `osi-src` relies on [vcpkg] to find Osi. Before building,
-you must have the correct Osi installed for your target triplet and kind of
-linking. For instance, to link dynamically for the `x86_64-pc-windows-msvc`
-toolchain, install `osi` for the `x64-windows` triplet:
+On Windows, if `${LIB_NAME}_SYSTEM` is set to `1`, `osi-src` will use 
+[vcpkg] to find Osi. Before building, you must have the correct Osi 
+installed for your target triplet and kind of linking. For instance,
+to link dynamically for the `x86_64-pc-windows-msvc` toolchain, install
+ `osi` for the `x64-windows` triplet:
 
 ```sh
 vcpkg install osi --triplet x64-windows
@@ -75,7 +82,11 @@ Your contribution is highly appreciated. Do not hesitate to open an issue or a
 pull request. Note that any contribution submitted for inclusion in the project
 will be licensed according to the terms given in [LICENSE](license-url).
 
+[CoinUtils]: https://github.com/coin-or/CoinUtils
 [Osi]: https://github.com/coin-or/Osi
+
+[CoinUtils-src]: https://github.com/Maroon502/coinutils-src
+
 [vcpkg]: https://github.com/Microsoft/vcpkg
 
 [documentation-img]: https://docs.rs/osi-src/badge.svg
