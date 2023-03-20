@@ -7,8 +7,8 @@ const LIB_NAME: &str = "Osi";
 
 fn main() {
     println!("cargo:rerun-if-changed={}_lib_sources.txt", LIB_NAME.to_ascii_lowercase());
-    println!("cargo:rerun-if-changed=CARGO_{}_STATIC", LIB_NAME.to_ascii_uppercase());
-    println!("cargo:rerun-if-changed=CARGO_{}_SYSTEM", LIB_NAME.to_ascii_uppercase());
+    println!("cargo:rerun-if-env-changed=CARGO_{}_STATIC", LIB_NAME.to_ascii_uppercase());
+    println!("cargo:rerun-if-env-changed=CARGO_{}_SYSTEM", LIB_NAME.to_ascii_uppercase());
 
     link::link_lib_system_if_defined(LIB_NAME);
 
