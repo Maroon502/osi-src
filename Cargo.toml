@@ -22,12 +22,12 @@ exclude = [
 [features]
 default = []
 
-cplex = []
-glpk = []
-gurobi = []
-mosek = []
-soplex = []
-xpress = []
+osicpx = []
+osiglpk = []
+osigrb = []
+osimsk = []
+osispx = []
+osixpr = []
 
 
 [dependencies]
