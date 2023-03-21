@@ -15,6 +15,15 @@ osi-src = "0.1"
 ```
 
 ## Configuration
+The following Cargo features are supported:
+
+* `default` to build `Osi` without any solver support;
+* `osicpx` to enable the Cplex support;
+* `osiglpk` to enable the GLPK support;
+* `osigrb` to enable the Gurobi support;
+* `osimsk` to enable the Mosek support;
+* `osispx` to enable the Soplex support;
+* `osixpr` to enable the XPRESS support;
 
 The package build from the source and link statically by default. It also provide the following environment variables to allow users to link to system library customly:
 
