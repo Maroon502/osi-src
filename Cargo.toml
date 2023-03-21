@@ -1,11 +1,12 @@
 [package]
 name = "osi-src"
-version = "0.1.0+0.108.7"
+version = "0.2.0+0.108.7"
 edition = "2021"
 build = "build.rs"
 links = "Osi"
 license = "Apache-2.0"
 description = "The low-level bindings to the COIN-OR Osi library."
+documentation = "https://docs.rs/osi-src/"
 repository = "https://github.com/Maroon502/osi-src.git"
 keywords = ["coin-or", "Osi", "Osi-src"]
 readme = "README.md"
@@ -31,8 +32,8 @@ osixpr = []
 
 
 [dependencies]
-coinutils-src = {git = "https://github.com/Maroon502/coinutils-src.git"}
+coinutils-src = "0.2"
 
 [build-dependencies]
 cc = "1.0"
-coin-build-tools = { git = "https://github.com/Maroon502/coin-build-tools.git" }
+coin-build-tools = "0.2"

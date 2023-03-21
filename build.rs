@@ -1,19 +1,27 @@
 use std::env;
 use std::path::{Path, PathBuf};
 
-use coin_build_tools::{utils, link, coinbuilder};
+use coin_build_tools::{coinbuilder, link, utils};
 
 const LIB_NAME: &str = "Osi";
 
 fn main() {
-    println!("cargo:rerun-if-changed={}_lib_sources.txt", LIB_NAME.to_ascii_lowercase());
-    println!("cargo:rerun-if-env-changed=CARGO_{}_STATIC", LIB_NAME.to_ascii_uppercase());
-    println!("cargo:rerun-if-env-changed=CARGO_{}_SYSTEM", LIB_NAME.to_ascii_uppercase());
+    println!(
+        "cargo:rerun-if-changed={}_lib_sources.txt",
+        LIB_NAME.to_ascii_lowercase()
+    );
+    println!(
+        "cargo:rerun-if-env-changed=CARGO_{}_STATIC",
+        LIB_NAME.to_ascii_uppercase()
+    );
+    println!(
+        "cargo:rerun-if-env-changed=CARGO_{}_SYSTEM",
+        LIB_NAME.to_ascii_uppercase()
+    );
 
     let want_system = utils::want_system(LIB_NAME);
 
     if want_system && link::link_lib_system_if_supported(LIB_NAME) {
-        
         let mut coinflags = vec!["OSI".to_string()];
 
         let link_type = if utils::want_static(LIB_NAME) {
@@ -47,8 +55,7 @@ fn main() {
             coinflags.push("OSIXPR".to_string());
         }
 
-
-        coinbuilder::print_metedata(Vec::new(), coinflags);     
+        coinbuilder::print_metedata(Vec::new(), coinflags);
         return;
     }
 
@@ -68,9 +75,7 @@ fn build_lib_and_link() {
             .display()
     );
 
-    let mut includes_dir = vec![
-        format!("{}/Osi", src_dir),
-    ];
+    let mut includes_dir = vec![format!("{}/Osi", src_dir)];
 
     let mut lib_sources = include_str!("osi_lib_sources.txt")
         .trim()
