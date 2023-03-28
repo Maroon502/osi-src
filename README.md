@@ -18,6 +18,13 @@ Just add the following to your `Cargo.toml`:
 osi-src = "0.2"
 ```
 
+This package does not provide bindings. Please use [coincbc-sys], [coinclp-sys] to use Cbc, Clp, e.g.
+
+```toml
+[dependencies]
+coincbc-sys = { version = "0.2" }
+```
+
 ## Configuration
 The following Cargo features are supported:
 
@@ -99,8 +106,11 @@ will be licensed according to the terms given in [LICENSE](license-url).
 [Osi]: https://github.com/coin-or/Osi
 
 [CoinUtils-src]: https://github.com/Maroon502/coinutils-src
+[coincbc-sys]: https://github.com/Maroon502/coincbc-sys
+[coinclp-sys]: https://github.com/Maroon502/coinclp-sys
 
 [vcpkg]: https://github.com/Microsoft/vcpkg
+
 
 [documentation-img]: https://docs.rs/osi-src/badge.svg
 [documentation-url]: https://docs.rs/osi-src
