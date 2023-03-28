@@ -116,11 +116,11 @@ fn build_lib_and_link() {
         coinflags.push("OSIXPR".to_string());
     }
 
-    coinbuilder::print_metedata(includes_dir.clone(), coinflags.clone());
-
     let (include_other, coinflags_other) = coinbuilder::get_metedata_from("CoinUtils");
     includes_dir.extend(include_other);
     coinflags.extend(coinflags_other);
+
+    coinbuilder::print_metedata(includes_dir.clone(), coinflags.clone());
 
     let mut config = coinbuilder::init_builder();
     coinflags.iter().for_each(|flag| {
