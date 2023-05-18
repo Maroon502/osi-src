@@ -1,6 +1,6 @@
 [package]
 name = "osi-src"
-version = "0.2.4+0.108.8"
+version = "0.2.5+0.108.8"
 edition = "2021"
 build = "build.rs"
 links = "Osi"
