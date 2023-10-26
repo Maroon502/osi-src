@@ -1,4 +1,3 @@
 [submodule "Osi"]
 	path = Osi
 	url = https://github.com/coin-or/Osi.git
-	branch = releases/0.108.7
