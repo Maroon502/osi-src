@@ -11,11 +11,18 @@ By this package, you don't need to worry about installing Osi in the system, and
 Osi (Open Solver Interface) provides an abstract base class to a generic linear programming (LP) solver, along with derived classes for specific solvers. Many applications may be able to use the Osi to insulate themselves from a specific LP solver. That is, programs written to the OSI standard may be linked to any solver with an OSI interface and should produce correct results. The OSI has been significantly extended compared to its first incarnation. Currently, the OSI supports linear programming solvers and has rudimentary support for integer programming.
 
 ## Usage
-Just add the following to your `Cargo.toml`:
+
+1. Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
 osi-src = "0.2"
+```
+
+2. Add the following to your `lib.rs`:
+
+```toml
+extern crate osi_src;
 ```
 
 This package does not provide bindings. Please use [coincbc-sys], [coinclp-sys] to use Cbc, Clp, e.g.
