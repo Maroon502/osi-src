@@ -14,16 +14,16 @@ Osi (Open Solver Interface) provides an abstract base class to a generic linear 
 
 1. Add the following to your `Cargo.toml`:
 
-```toml
-[dependencies]
-osi-src = "0.2"
-```
+    ```toml
+    [dependencies]
+    osi-src = "\*"
+    ```
 
 2. Add the following to your `lib.rs`:
 
-```toml
-extern crate osi_src;
-```
+    ```toml
+    extern crate osi_src;
+    ```
 
 This package does not provide bindings. Please use [coincbc-sys], [coinclp-sys] to use Cbc, Clp, e.g.
 
@@ -33,6 +33,9 @@ coincbc-sys = { version = "0.2" }
 ```
 
 ## Configuration
+
+### Features
+
 The following Cargo features are supported:
 
 * `default` to build `Osi` without any solver support;
@@ -42,6 +45,8 @@ The following Cargo features are supported:
 * `osimsk` to enable the Mosek support;
 * `osispx` to enable the Soplex support;
 * `osixpr` to enable the XPRESS support;
+
+### Environment
 
 The package build from the source and link statically by default. It also provide the following environment variables to allow users to link to system library customly:
 
@@ -54,8 +59,8 @@ Set the environment variable to `1` to enable the feature. For example, to link 
 
 ## Windows and vcpkg
 
-On Windows, if `${LIB_NAME}_SYSTEM` is set to `1`, `osi-src` will use 
-[vcpkg] to find Osi. Before building, you must have the correct Osi 
+On Windows, if `${LIB_NAME}_SYSTEM` is set to `1`, `osi-src` will use
+[vcpkg] to find Osi. Before building, you must have the correct Osi
 installed for your target triplet and kind of linking. For instance,
 to link dynamically for the `x86_64-pc-windows-msvc` toolchain, install
  `osi` for the `x64-windows` triplet:
@@ -78,7 +83,7 @@ vcpkg install osi --triplet x64-windows-static
 
 and build with `+crt-static` option
 
-```
+```sh
 RUSTFLAGS='-C target-feature=+crt-static' cargo build --target x86_64-pc-windows-msvc
 ```
 
@@ -86,22 +91,24 @@ Please see the ["Static and dynamic C runtimes" in The Rust reference](https://d
 
 ## Cross Compilation
 
-you can compile it for the other target by providing the `--target` option to 
-`cargo build`. 
-
+you can compile it for the other target by providing the `--target` option to
+`cargo build`.
 
 | Target                               |  supported  |
 |--------------------------------------|:-----------:|
 | `arm-unknown-linux-gnueabi`          | ✓   |
 | `arm-unknown-linux-gnueabihf`        | ✓   |
-| `armv7-linux-androideabi`            | ✓   |
 | `armv7-unknown-linux-gnueabi`        | ✓   |
 | `armv7-unknown-linux-gnueabihf`      | ✓   |
 | `armv7-unknown-linux-musleabi`       | ✓   |
 | `armv7-unknown-linux-musleabihf`     | ✓   |
+| `aarch64-unknown-linux-gnu`          | ✓   |
+| `aarch64-unknown-linux-musl`         | ✓   |
 | `riscv64gc-unknown-linux-gnu`        | ✓   |
-| `x86_64-pc-windows-gnu`              | ✓   |
+| `x86_64-pc-windows-msvc`             | ✓   |
 | `x86_64-unknown-linux-gnu`           | ✓   |
+| `x86_64-unknown-linux-musl`          | ✓   |
+| others                               | not test   |
 
 ## Contribution
 
@@ -117,7 +124,6 @@ will be licensed according to the terms given in [LICENSE](license-url).
 [coinclp-sys]: https://github.com/Maroon502/coinclp-sys
 
 [vcpkg]: https://github.com/Microsoft/vcpkg
-
 
 [documentation-img]: https://docs.rs/osi-src/badge.svg
 [documentation-url]: https://docs.rs/osi-src

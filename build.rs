@@ -55,6 +55,9 @@ fn main() {
             coinflags.push("OSIXPR".to_string());
         }
 
+        let (_, coinflags_other) = coinbuilder::get_metadata_from("CoinUtils");
+        coinflags.extend(coinflags_other);
+
         coinbuilder::print_metadata(Vec::new(), coinflags);
         return;
     }
