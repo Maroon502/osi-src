@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.2.8+0.108.9](https://github.com/Maroon502/osi-src/compare/v0.2.7+0.108.9...v0.2.8+0.108.9) - 2024-04-14
+## [0.2.8+0.108.10](https://github.com/Maroon502/osi-src/compare/v0.2.7+0.108.9...v0.2.8+0.108.9) - 2024-04-14
 
 ### Other
 - Bump Osi from 0.108.9 to 0.108.10
